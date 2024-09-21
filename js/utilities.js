@@ -21,3 +21,13 @@ function getTextFieldValueById(id){
 	
 	return textNumber;
 }
+
+function showSectionById(id){
+	//hidden all section
+	document.getElementById('add-money-form').classList.add('hidden');
+	document.getElementById('cash-out-form').classList.add('hidden');
+	document.getElementById('transaction-section').classList.add('hidden');
+
+	//show section 
+	document.getElementById(id).classList.remove('hidden');
+}

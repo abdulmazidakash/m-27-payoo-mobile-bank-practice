@@ -18,7 +18,12 @@ document.getElementById('btn-add-money')
 		const addMoney = getInputFieldValueById('input-add-money');
 		const pinNumber = getInputFieldValueById('input-pin-number');
 
-		console.log('add money value', addMoney, pinNumber);
+		if (isNaN(addMoney)){
+			alert('failed to add money.');
+			return;
+		}
+
+		// console.log('add money value', addMoney, pinNumber);
 
 		if (pinNumber === 1234){
 
@@ -27,7 +32,15 @@ document.getElementById('btn-add-money')
 			const newBalance = balance  + addMoney;
 
 			document.getElementById('account-balance').innerText = newBalance;
-			
+
+			//add to transaction history
+			const p = document.createElement('p');
+			p.innerText = `Added: ${addMoney} Tk. New Balance: ${newBalance} `;
+			console.log(p);
+
+			//should be a common function 
+			document.getElementById('transaction-container').appendChild(p);
+
 		}else{
 			alert('failed your password, please try again');
 		}
